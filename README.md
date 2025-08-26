@@ -75,3 +75,5 @@ npm run dev
 Open the local URL provided (usually http://localhost:5173) in your browser.
 
 deploy on netlify or StackBlitz
+https://stackblitz.com/~/github.com/Rakshita0908/Aganitha_Web_Developer_Assignment
+
