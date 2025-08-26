@@ -10,8 +10,9 @@ export default function App() {
       setError("");
       setWeather(null);
 
+      // Use .env variable for the geocoding API
       const geoRes = await fetch(
-        `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
+        `${import.meta.env.VITE_WEATHER_API}/search?name=${city}`
       );
       const geoData = await geoRes.json();
 
@@ -46,19 +47,19 @@ export default function App() {
         <h1 className="text-3xl font-bold mb-6 text-blue-700">🌦️ Weather Now</h1>
 
         {/* Search bar */}
-       
-    <div className="flex justify-center items-center gap-3 mb-6 w-full">
-  <input
-    type="text"
-    placeholder="Enter city"
-    value={city}
-    onChange={(e) => setCity(e.target.value)}
-    className="w-48 px-4 py-2 rounded-l-lg border border-gray-300 text-black focus:outline-none"
-  />
-  <button
-    onClick={getWeather}
-    className="bg-blue-600 text-white px-4 py-2 rounded-r-lg font-semibold hover:bg-blue-700 transition"
-  >    Search
+        <div className="flex justify-center items-center gap-3 mb-6 w-full">
+          <input
+            type="text"
+            placeholder="Enter city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="w-48 px-4 py-2 rounded-l-lg border border-gray-300 text-black focus:outline-none"
+          />
+          <button
+            onClick={getWeather}
+            className="bg-blue-600 text-white px-4 py-2 rounded-r-lg font-semibold hover:bg-blue-700 transition"
+          >
+            Search
           </button>
         </div>
 
@@ -80,4 +81,4 @@ export default function App() {
       </div>
     </div>
   );
-}   
+}
